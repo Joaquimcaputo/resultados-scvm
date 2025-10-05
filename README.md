@@ -1,43 +1,39 @@
-# RESULTADOS SCVM - Sistema de Gestão de Ordens
+# RESULTADOS SCVM - Plataforma Profissional de Trading
 
-## 📈 Plataforma Digital Profissional
+## 🏦 Sistema Completo de Gestão de Ordens
 
-Sistema completo para gestão de ordens de investimento no mercado de capitais angolano.
+Plataforma digital institucional para negociação de valores mobiliários no mercado angolano (BODIVA).
 
-### 🚀 Funcionalidades
+### ✨ Funcionalidades
 
-- **Livro de Ordens BODIVA** - 17 instrumentos reais
-- **Simulador Profissional** - Cálculos conforme preçário oficial
-- **Dashboard Executivo** - Métricas e analytics
-- **Gestão de Ordens** - Fluxo completo de compliance
+- **Abertura de Conta (KYC)**: Registro em 4 etapas com validação completa
+- **Dashboard Executivo**: Visão geral do mercado e estatísticas
+- **Análise de Instrumentos**: Cotações em tempo real
+- **Gestão de Ordens**: Simulação e execução de ordens
+- **Compliance**: Workflow de validação regulatória
 
 ### 🛠 Tecnologias
 
-- React 18 + Tailwind CSS
-- Recharts para gráficos
-- Design System RESULTADOS
+- React 18
+- Tailwind CSS
+- Lucide Icons
+- Design responsivo
 
-### 📊 Instrumentos Disponíveis
+### 🎨 Design
 
-- **Ações**: BFA, BAI, BCA, BPC, SOL
-- **OT-NR**: OTNR24, OTNR25, OTNR26  
-- **OT-ME**: OTME24, OTME25
-- **Bilhetes do Tesouro**: BT91D, BT182D, BT364D
-- **Unidades de Participação**: UPCRE, UPREN
-- **Papel Comercial**: PCSON, PCEND
+Paleta oficial RESULTADOS:
+- Verde Principal: #1B5E4F
+- Verde Escuro: #0D3D31
+- Dourado: #D4AF37
 
-### 🔗 Links
+### 📄 Conformidade
 
-- **Produção**: https://resultados-scvm.netlify.app
-- **Repositório**: https://github.com/Joaquimcaputo/resultados-scvm
-- **Documentação**: Preçário v5.0 (09-08-2024)
-
-### 👥 Contato
-
-**RESULTADOS SCVM, S.A.**
-- 📧 geral@resultadossa.com
-- 📞 +244 936 515 155
-- 🏢 Calçada do Pelourinho nº5, 1° Andar APT 12, Luanda
+- Preçário Oficial v5.0 (09-08-2024)
+- Regulamentação CMC
+- KYC/AML compliance
 
 ---
-*Sistema desenvolvido para a RESULTADOS Sociedade Corretora de Valores Mobiliários, S.A.*
+
+**RESULTADOS SCVM, S.A.**  
+Sociedade Corretora de Valores Mobiliários  
+Registo CMC: 04/SCVM/CMC/05-2023

@@ -3,244 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RESULTADOS SCVM - Sistema Profissional de Gestão de Ordens</title>
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <title>RESULTADOS SCVM - Plataforma Profissional</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .gradient-primary { 
-            background: linear-gradient(135deg, #14664D 0%, #0D3D31 100%); 
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        teal: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            600: '#1B5E4F',
+                            700: '#0D3D31',
+                            900: '#134e4a'
+                        }
+                    }
+                }
+            }
         }
-        .gradient-card { 
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); 
-        }
-    </style>
+    </script>
 </head>
-<body class="bg-gray-50">
+<body>
     <div id="root"></div>
-    
+    <script type="text/babel" src="App.jsx"></script>
     <script type="text/babel">
-        const { useState, useMemo } = React;
-        
-        // Componente simplificado para demonstração
-        const App = () => {
-            const [activeTab, setActiveTab] = useState('dashboard');
-            
-            return (
-                <div className="min-h-screen">
-                    {/* Header */}
-                    <header className="shadow-lg gradient-primary">
-                        <div className="max-w-7xl mx-auto px-4 py-4">
-                            <div className="flex justify-between items-center">
-                                <div className="flex items-center space-x-3">
-                                    <div className="relative">
-                                        <div className="w-10 h-10 bg-gradient-to-br from-green-600 to-green-800 rounded-lg flex items-center justify-center">
-                                            <div className="w-6 h-6 bg-white rounded-sm transform rotate-45"></div>
-                                        </div>
-                                        <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-br from-amber-400 to-amber-600 rounded-full"></div>
-                                    </div>
-                                    <div className="flex flex-col">
-                                        <span className="font-bold text-lg text-white">Resultados</span>
-                                        <span className="text-xs text-green-200">SCVM S.A.</span>
-                                    </div>
-                                </div>
-                                
-                                <nav className="flex gap-2">
-                                    {['dashboard', 'instrumentos', 'ordens', 'carteira'].map(tab => (
-                                        <button
-                                            key={tab}
-                                            onClick={() => setActiveTab(tab)}
-                                            className={`px-4 py-2 rounded-lg font-medium capitalize transition-all ${
-                                                activeTab === tab 
-                                                    ? 'bg-white text-green-900 shadow-md' 
-                                                    : 'text-white hover:bg-white hover:bg-opacity-20'
-                                            }`}
-                                        >
-                                            {tab}
-                                        </button>
-                                    ))}
-                                </nav>
-                            </div>
-                        </div>
-                    </header>
-
-                    {/* Main Content */}
-                    <main className="max-w-7xl mx-auto px-4 py-8">
-                        {activeTab === 'dashboard' && (
-                            <div className="space-y-8">
-                                <div>
-                                    <h1 className="text-4xl font-bold text-green-800">Dashboard Profissional</h1>
-                                    <p className="text-gray-600 mt-2">RESULTADOS SCVM - Sistema de Gestão de Ordens</p>
-                                </div>
-                                
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                                    {/* Stat Cards */}
-                                    <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
-                                        <div className="flex items-center gap-2 mb-2">
-                                            <div className="p-2 rounded-lg bg-green-100 text-green-700">📈</div>
-                                            <p className="text-gray-600 text-sm font-medium">Instrumentos</p>
-                                        </div>
-                                        <h3 className="text-3xl font-bold text-gray-800">17</h3>
-                                        <p className="text-sm text-gray-500 mt-1">Disponíveis</p>
-                                    </div>
-                                    
-                                    <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
-                                        <div className="flex items-center gap-2 mb-2">
-                                            <div className="p-2 rounded-lg bg-teal-100 text-teal-700">💰</div>
-                                            <p className="text-gray-600 text-sm font-medium">Liquidez</p>
-                                        </div>
-                                        <h3 className="text-3xl font-bold text-gray-800">285.692</h3>
-                                        <p className="text-sm text-gray-500 mt-1">Unidades</p>
-                                    </div>
-                                    
-                                    <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
-                                        <div className="flex items-center gap-2 mb-2">
-                                            <div className="p-2 rounded-lg bg-blue-100 text-blue-700">📊</div>
-                                            <p className="text-gray-600 text-sm font-medium">Volume 24h</p>
-                                        </div>
-                                        <h3 className="text-3xl font-bold text-gray-800">12.8B</h3>
-                                        <p className="text-sm text-gray-500 mt-1">Kz negociados</p>
-                                    </div>
-                                    
-                                    <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
-                                        <div className="flex items-center gap-2 mb-2">
-                                            <div className="p-2 rounded-lg bg-amber-100 text-amber-700">⏰</div>
-                                            <p className="text-gray-600 text-sm font-medium">Ordens</p>
-                                        </div>
-                                        <h3 className="text-3xl font-bold text-gray-800">0</h3>
-                                        <p className="text-sm text-gray-500 mt-1">Pendentes</p>
-                                    </div>
-                                </div>
-
-                                <div className="bg-white rounded-xl shadow-lg p-8 text-center border border-gray-200">
-                                    <div className="text-6xl mb-4">🚀</div>
-                                    <h2 className="text-2xl font-bold text-green-800 mb-4">
-                                        Plataforma RESULTADOS SCVM
-                                    </h2>
-                                    <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                                        Sistema profissional de gestão de ordens com 17 instrumentos reais do mercado de capitais angolano. 
-                                        Desenvolvido com tecnologia moderna e conformidade regulatória total.
-                                    </p>
-                                    <div className="grid md:grid-cols-3 gap-4 text-sm text-gray-500 max-w-2xl mx-auto">
-                                        <div className="flex items-center justify-center gap-2">
-                                            <span className="text-green-500">✅</span>
-                                            <span>17 Instrumentos BODIVA</span>
-                                        </div>
-                                        <div className="flex items-center justify-center gap-2">
-                                            <span className="text-green-500">✅</span>
-                                            <span>Preçário Oficial v5.0</span>
-                                        </div>
-                                        <div className="flex items-center justify-center gap-2">
-                                            <span className="text-green-500">✅</span>
-                                            <span>Cálculos Automáticos</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
-
-                        {activeTab === 'instrumentos' && (
-                            <div className="space-y-6">
-                                <div>
-                                    <h1 className="text-4xl font-bold text-green-800">Livro de Ordens BODIVA</h1>
-                                    <p className="text-gray-600 mt-2">17 instrumentos disponíveis para negociação</p>
-                                </div>
-                                
-                                <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
-                                    <div className="flex flex-col md:flex-row gap-4">
-                                        <div className="flex-1 relative">
-                                            <input
-                                                type="text"
-                                                placeholder="Buscar por código, emissor ou ISIN..."
-                                                className="w-full pl-4 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
-                                            />
-                                        </div>
-                                        <select className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
-                                            <option>Todas as Tipologias</option>
-                                            <option>Ações</option>
-                                            <option>OT-NR</option>
-                                            <option>OT-ME</option>
-                                            <option>Bilhetes do Tesouro</option>
-                                            <option>Unidades de Participação</option>
-                                            <option>Papel Comercial</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div className="bg-white rounded-xl shadow-lg p-8 text-center border border-gray-200">
-                                    <div className="text-6xl mb-4">📊</div>
-                                    <h2 className="text-2xl font-bold text-green-800 mb-4">
-                                        Instrumentos do Mercado
-                                    </h2>
-                                    <p className="text-gray-600 mb-6">
-                                        Acesse a lista completa de 17 instrumentos disponíveis para negociação na Bolsa de Valores de Angola.
-                                    </p>
-                                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm text-gray-500">
-                                        <div>Ações: 5</div>
-                                        <div>OT-NR: 3</div>
-                                        <div>OT-ME: 2</div>
-                                        <div>BT: 3</div>
-                                        <div>UP: 2</div>
-                                        <div>PC: 2</div>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
-
-                        {activeTab === 'ordens' && (
-                            <div className="space-y-6">
-                                <h1 className="text-4xl font-bold text-green-800">Minhas Ordens</h1>
-                                
-                                <div className="bg-white rounded-xl shadow-lg p-12 text-center border border-gray-200">
-                                    <div className="text-6xl mb-4">📝</div>
-                                    <p className="text-gray-600 text-lg mb-4">Nenhuma ordem submetida</p>
-                                    <button
-                                        onClick={() => setActiveTab('instrumentos')}
-                                        className="px-6 py-3 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700"
-                                    >
-                                        Explorar Instrumentos
-                                    </button>
-                                </div>
-                            </div>
-                        )}
-
-                        {activeTab === 'carteira' && (
-                            <div className="space-y-6">
-                                <h1 className="text-4xl font-bold text-green-800">Minha Carteira</h1>
-                                
-                                <div className="bg-white rounded-xl shadow-lg p-12 text-center border border-gray-200">
-                                    <div className="text-6xl mb-4">💼</div>
-                                    <p className="text-gray-600 text-lg mb-4">Módulo de Carteira em Desenvolvimento</p>
-                                    <p className="text-gray-500 mb-6">
-                                        Em breve você poderá acompanhar sua carteira de investimentos de forma completa
-                                    </p>
-                                </div>
-                            </div>
-                        )}
-                    </main>
-
-                    {/* Footer */}
-                    <footer className="bg-green-900 text-white py-8 mt-12">
-                        <div className="max-w-7xl mx-auto px-4 text-center">
-                            <p className="font-bold text-lg">RESULTADOS SCVM, S.A.</p>
-                            <p className="text-green-200 text-sm mt-2">Sociedade Corretora de Valores Mobiliários</p>
-                            <p className="text-green-300 text-xs mt-4">
-                                Rua Calçada do Pelourinho nº5, 1° Andar APT 12, Luanda - Angola
-                            </p>
-                            <p className="text-green-300 text-xs mt-2">
-                                📧 geral@resultadossa.com | 📞 +244 936 515 155
-                            </p>
-                            <p className="text-green-400 text-xs mt-4">
-                                NIF: 5001164678 | Registro CMC: 04/SCVM/CMC/05-2023
-                            </p>
-                        </div>
-                    </footer>
-                </div>
-            );
-        };
-
-        ReactDOM.render(<App />, document.getElementById('root'));
+        ReactDOM.render(<TradingPlatform />, document.getElementById('root'));
     </script>
 </body>
 </html>
